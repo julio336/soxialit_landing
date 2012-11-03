@@ -1,0 +1,19 @@
+<%= form_for @user, url: wizard_path do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  
+  <%= yield f %>
+
+  <br />
+  <h5>Elige un pérfil (<i>el tipo de pérfil sólo se puede seleccionar una vez</i>):</h5>
+  <% for role in Role.find(:all) %>
+    <div>
+        <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+        <%= role.name %>
+    </div>
+  <% end %>
+  <br />
+  
+  <div class="actions">
+    <%= f.submit "Crear Pérfil" %>
+  </div>
+<% end %>

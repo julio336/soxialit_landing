@@ -1,0 +1,11 @@
+<% if current_user.products.count >1 %>
+	$('#producto_<%= @painting.id %>').hover(
+	     function () {
+				console.log("hover");
+				$(this).append('<%= link_to image_tag("close.png"), @painting, method: :delete, remote: true, :id => "remove" %>');
+			},
+			function (){
+				$(this).find("#remove").remove();
+				console.log("hover off");
+	  });
+<% end %>

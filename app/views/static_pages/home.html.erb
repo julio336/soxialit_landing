@@ -1,0 +1,58 @@
+<div class="row">
+	<div class="span6">
+		<p id="title">Soxialit</p>
+	</div>
+	<div class="span4 offset2">
+		<p id="session">Si tienes una <strong>invitación</strong>, 
+   			<a href="http://www.soxialit.com/users/sign_in"
+   			onclick="_gaq.push(['_trackEvent', 'Links', 'Buy Onclick', 'Invitacion OnClick']);"
+			onmousedown="_gaq.push(['_trackEvent', 'Links', 'Buy Onmousedown', 'Invitacion OnMouse']);">
+			inicia sesión
+			</a>.
+   			<br />
+   		</p>
+   		<p id="invitacion" style="text-align:center">Si no, <%= link_to 'regístrate', '/auth/facebook/' %>, a veces regalamos algunas.
+   		</p>
+   		<% if user_signed_in? %>
+		    Signed in as <%= current_user.email %>. Not you?
+		    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  		<% end %>
+	</div>
+</div>
+<div class="row">
+	<div class="span9">
+		<h2 id="titleDescription">Soxialit es una <span id="redsocial">red social</span> que conecta<br/>
+	<span id="fashion">fashion</span> <span id="bold">designers, bloggers, fotográfos y boutiques</span>
+	<br />en México y Latinoamérica.
+		</h2>
+	</div>
+	<div class="span3">
+		<%= render 'social_plugins' %>
+	</div>
+</div>
+<div class="row">
+		<div id="wrapper">
+			<div class="span5">
+				<div id="leftside">
+					<h4>Actualmente sólo se puede ingresar a Soxialit
+						por <span id="redsocial">invitación</span>.
+					</h4><br />
+					<div id="leftsideSecondBlock">Si estás <span id="fashion">desesperado</span> por entrar<br/>
+						obtén una cuenta <strong>ahora mismo</strong><br />
+						por <strong>$10 USD</strong>.
+						<br /><br />
+						<%= render 'mercadopago' %>
+					</div>
+				</div>
+			</div>
+			<div class="span5 offset1">
+			</div>
+		</div>
+</div>
+<% if !Rails.env.production? %>
+<script type="text/javascript">
+    mixpanel.track("Landing Page Loaded")
+</script>
+<% else %>
+  <script>(function(c,a){var b,d,h,e;............</script>
+<% end %>
